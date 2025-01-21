@@ -10,8 +10,13 @@ export default defineConfig({
     reporter: 'cypress-mochawesome-reporter',
     reporterOptions: {
       reportDir: 'cypress/reports',
+      overwrite: true,
+      charts: true,
+      embeddedScreenshots: true,
       html: true,
       json: false,
+      reportPageTitle: 'Pruebas Cypress',
+      inlineAssets: true,
     },
   },
 });
