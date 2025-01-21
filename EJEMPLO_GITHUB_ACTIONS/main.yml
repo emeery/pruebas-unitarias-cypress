@@ -28,3 +28,21 @@ jobs:
           rm -rf node_modules
           rm -f package-lock.json
         working-directory: ./sitio_pruebas
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./sitio_pruebas
+
+      - name: Start the application
+        run: npm run dev &
+        working-directory: ./sitio_pruebas
+        env:
+          CI: true
+
+      - name: Wait for the application to be ready
+        run: npx wait-on http://localhost:5173
+        working-directory: ./sitio_pruebas
+
+      - name: Run Cypress tests
+        run: npx cypress run
+        working-directory: ./sitio_pruebas
