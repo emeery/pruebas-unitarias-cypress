@@ -15,4 +15,11 @@ describe('Register Form', () => {
         cy.get('form :nth-child(1) > .text-danger').should('not.exist');
     });
 
+    it('debe mostrar un mensaje de error si los passwords no coinciden', () => {
+        cy.get('input[name="password"]').type('password123');
+        cy.get('input[name="confirmPassword"]').type('password321');
+        cy.get('form').submit();
+        cy.get('div.text-danger').should('contain', 'Las contraseñas no coinciden');
+    });
+
 });
