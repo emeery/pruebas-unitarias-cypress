@@ -22,4 +22,14 @@ describe('Register Form', () => {
         cy.get('div.text-danger').should('contain', 'Las contraseñas no coinciden');
     });
 
+    it('debe mostrar un mensaje de confirmación al enviar todos los datos', () => {
+        cy.get('input[name="name"]').type('John Doe');
+        cy.get('input[name="email"]').type('john@example.com');
+        cy.get('input[name="phone"]').type('555-2233');
+        cy.get('input[name="password"]').type('password123');
+        cy.get('input[name="confirmPassword"]').type('password123');
+        cy.get('form').submit();
+        cy.contains('Gracias por registrarte').should('be.visible').and('contain', 'john@example.com');
+    });
+
 });
