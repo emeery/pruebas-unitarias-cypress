@@ -29,7 +29,28 @@ describe('Register Form', () => {
         cy.get('input[name="password"]').type('password123');
         cy.get('input[name="confirmPassword"]').type('password123');
         cy.get('form').submit();
-        cy.contains('Gracias por registrarte').should('be.visible').and('contain', 'john@example.com');
+        cy.contains('Gracias por registrarte') .should('be.visible').and('contain', 'john@example.com');
+    });
+
+    it('verifica que se envíen los datos y método correcto', () => {
+        cy.intercept('POST', '/api/registro', (req) => {
+            expect(req.body).to.include({
+                name: 'John Doe',
+                email: 'john@example.com',
+                phone: '555-2233',
+                password: 'password123',
+                confirmPassword: 'password123'
+            });
+        }).as('registerRequest');
+
+        cy.get('input[name="name"]').type('John Doe');
+        cy.get('input[name="email"]').type('john@example.com');
+        cy.get('input[name="phone"]').type('555-2233');
+        cy.get('input[name="password"]').type('password123');
+        cy.get('input[name="confirmPassword"]').type('password123');
+        cy.get('form').submit();
+
+        cy.wait('@registerRequest');
     });
 
 });
