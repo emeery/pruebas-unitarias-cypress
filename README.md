@@ -2,7 +2,7 @@
 
 Este es el repositorio del curso de LinkedIn Learning `Desarrollo web: Control de calidad automatizado`. El curso completo está disponible en [LinkedIn Learning][lil-course-url].
 
-![Nombre completo del curso][lil-thumbnail-url] 
+![Nombre completo del curso][lil-thumbnail-url]
 
 Consulta el archivo Readme en la rama main para obtener instrucciones e información actualizadas.
 
@@ -19,10 +19,20 @@ Las ramas están estructuradas para corresponder a los vídeos del curso. La con
 ## Instalación
 
 1. Para utilizar estos archivos de ejercicios, debes tener descargado lo siguiente:
-   - [software]
+   - [NodeJS](https://nodejs.org/en)
+   - [Visual Studio Code](https://code.visualstudio.com/)
 
-2. Clona este repositorio en tu máquina local usando la Terminal (macOS) o CMD (Windows), o una herramienta GUI como SourceTree.
-3. [Instrucciones específicas del curso].
+   - Software específico para realizar pruebas en Selenium (opcional)
+      - [Python](https://www.python.org/)
+      - [ChromeDriver](https://sites.google.com/chromium.org/driver/home)
+
+
+2. Clona este repositorio en tu máquina local usando la Terminal (macOS) o CMD (Windows), o una herramienta GUI como SourceTree o Github Desktop.
+3. Para ejecutar el servidor de pruebas debes ejecutar los siguientes comandos
+
+  - `cd sitio_pruebas`
+  - `npm install` (La primera vez que ejecutas el proyecto)
+  - `npm run dev`
 
 ### Docente
 
