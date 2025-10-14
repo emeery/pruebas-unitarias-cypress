@@ -5,7 +5,7 @@ describe("pagina principal", () => {
   });
 
   it("abre la version español", () => {
-    cy.url().should("include", "localhost");
+    cy.url().should("include", "localhost error");
   });
 
   it("abre el menu de navegacion", () => {
